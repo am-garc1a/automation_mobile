@@ -27,26 +27,18 @@ public class MapScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
-    private AndroidElement categoryList;
-
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filterTitle.*\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Filter\")")
     private AndroidElement filterButton;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
+    private AndroidElement categoriesButton;
+
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*toggleTitle.*\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Show List\")")
     private AndroidElement showListButton;
-
-    /**
-     * @author Hans.Marquez
-     * return true if Category List element is displayed in screen, otherwise false.
-     */
-    public boolean categoryIsDisplayed() {
-        return isElementAvailable(categoryList);
-    }
 
     /**
      * @author Hans.Marquez
@@ -58,10 +50,23 @@ public class MapScreen extends BaseScreen {
 
     /**
      * @author Hans.Marquez
+     * return true if Categories Button element is displayed in screen, otherwise false.
+     */
+    public boolean categoriesIsDisplayed() {
+        return isElementAvailable(categoriesButton);
+    }
+
+    /**
+     * @author Hans.Marquez
      * return true if Show List Button element is displayed in screen, otherwise false.
      */
     public boolean showListIsDisplayed() {
         return isElementAvailable(showListButton);
+    }
+
+    public CategoryListComponent clickCategoryListComponent() {
+        click(categoriesButton);
+        return new CategoryListComponent(driver);
     }
 
 }

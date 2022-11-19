@@ -53,7 +53,7 @@ public abstract class BaseMobileTest {
      */
     @AfterMethod(alwaysRun = true)
     public void mobileApplicationEnd() {
-        driver.quit();
+        //driver.quit();
     }
 
     /**

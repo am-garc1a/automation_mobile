@@ -5,5 +5,5 @@
     <classes>
       <class name="tests.NavigationTest"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+</suite>
