@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import screens.CategoryListComponent;
 import screens.DashBoardScreen;
 import screens.MapScreen;
+import util.reporter.Reporter;
 import util.tests.BaseMobileTest;
 
 public class NavigationTest extends BaseMobileTest {
@@ -14,32 +15,35 @@ public class NavigationTest extends BaseMobileTest {
      * Validate Map Screen Navigation.
      */
     @Description(value = "Map screen Navigation test")
-    @Test()
+    @Test(priority = 1)
     public void navigateToMapScreen() {
-        log.info("Start Navigation to Map Screen");
+        Reporter.info("TEST START, navigation to map and categories list---------------");
+
+        Reporter.info("Start Navigation to Map Screen");
         DashBoardScreen dashBoard = loadDashBoardScreen();
         MapScreen map = dashBoard.goToMapScreen();
 
-        log.info("Validate Filter Button");
+        Reporter.info("Validate Filter Button");
         Assert.assertTrue(map.filterIsDisplayed(), "Filter is not displayed");
 
-        log.info("Validate Categories Button");
+        Reporter.info("Validate Categories Button");
         Assert.assertTrue(map.categoriesIsDisplayed(), "Categories is not displayed");
 
-        log.info("Validate Show List Button");
+        Reporter.info("Validate Show List Button");
         Assert.assertTrue(map.showListIsDisplayed(), "Show List is not displayed");
-    }
 
-    @Description(value = "Categories list test")
-    @Test()
-    public void navigateToCategoriesList() {
-        log.info("Precondition -> Navigate to Map Screen");
-        DashBoardScreen dashBoard = loadDashBoardScreen();
-        MapScreen map = dashBoard.goToMapScreen();
         CategoryListComponent categoryList = map.clickCategoryListComponent();
 
-        log.info("Validate Categories Title");
+        Reporter.info("Validate Categories Title");
         Assert.assertTrue(categoryList.selectCategoryTitleIsDisplayed(), "Categories List is not displayed");
+
+        Reporter.info("Validate Categories");
+        Assert.assertTrue(categoryList.categoriesAreDisplayed(), "Categories are not displayed");
+
+        Reporter.info("Validate Hotels is displayed");
+        Assert.assertEquals(categoryList.categoryIsPresent("Hotels"), "Hotels");
+
+        Reporter.info("TEST FINISH, navigation to map and categories list---------------\n");
     }
 
 }

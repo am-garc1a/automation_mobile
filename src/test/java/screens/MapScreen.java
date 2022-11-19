@@ -8,8 +8,6 @@ import util.screens.BaseScreen;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
 
-// TODO: Auto-generated Javadoc
-
 /**
  * Map screen.
  *

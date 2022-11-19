@@ -22,7 +22,7 @@ public abstract class BaseMobileTest {
 
     protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
-    public Logger log = Logger.getLogger(BaseMobileTest.class);
+    //public Logger log = Logger.getLogger(BaseMobileTest.class);
 
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
@@ -53,7 +53,7 @@ public abstract class BaseMobileTest {
      */
     @AfterMethod(alwaysRun = true)
     public void mobileApplicationEnd() {
-        //driver.quit();
+        driver.quit();
     }
 
     /**
