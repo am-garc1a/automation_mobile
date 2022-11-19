@@ -2,7 +2,6 @@ package util.tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,8 +21,6 @@ public abstract class BaseMobileTest {
 
     protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
-    //public Logger log = Logger.getLogger(BaseMobileTest.class);
-
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
     }

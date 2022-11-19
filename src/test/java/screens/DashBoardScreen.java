@@ -32,7 +32,8 @@ public class DashBoardScreen extends BaseScreen {
     private AndroidElement dismissWelcome;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"Map\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"Map\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Map\")")
     private AndroidElement mapButton;
 
@@ -41,10 +42,10 @@ public class DashBoardScreen extends BaseScreen {
      * Navigate to Login Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+        if (this.isElementAvailable(dismissWelcome, 25)) {
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)) {
             click(dismissPreferenceUpdateButton);
         }
         click(mapButton);

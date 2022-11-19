@@ -5,7 +5,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -14,8 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static java.lang.String.format;
 
 /**
  * Base class for all screens Objects.
@@ -28,11 +25,6 @@ public abstract class BaseScreen {
      * The driver.
      */
     protected final AndroidDriver<AndroidElement> driver;
-
-    /**
-     * The log.
-     */
-    public Logger log = Logger.getLogger(BaseScreen.class);
 
     /**
      * Constructor method for standard screens object.
