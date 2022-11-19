@@ -10,12 +10,14 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 
 /**
  * DashBoard screen.
+ *
  * @author Hans.Marquez
  */
 public class DashBoardScreen extends BaseScreen {
 
     /**
      * Constructor method.
+     *
      * @param driver : AndroidDriver
      * @author Hans.Marquez
      */
@@ -35,8 +37,12 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Map\")")
     private AndroidElement mapButton;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"More\")")
+    private AndroidElement moreOptionsButton;
+
     /**
-     * Navigate to Log in Screen from DashBoard Screen.
+     * Navigate to Map Screen from DashBoard Screen.
+     *
      * @author Hans.Marquez
      */
     public MapScreen goToMapScreen() {
@@ -49,4 +55,21 @@ public class DashBoardScreen extends BaseScreen {
         click(mapButton);
         return new MapScreen(driver);
     }
+
+    /**
+     * Navigate to More Options Screen from DashBoard Screen.
+     *
+     * @author am.garcia
+     */
+    public MoreOptionsScreen goToMoreOptionsScreen() {
+        if (this.isElementAvailable(dismissWelcome, 25)) {
+            click(dismissWelcome);
+        }
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)) {
+            click(dismissPreferenceUpdateButton);
+        }
+        click(moreOptionsButton);
+        return new MoreOptionsScreen(driver);
+    }
+
 }

@@ -14,18 +14,21 @@ import java.net.URL;
 
 /**
  * Base class for Test classes.
+ *
  * @author helberth.bolivar
  */
 public abstract class BaseMobileTest {
 
     protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
+
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
     }
 
     /**
      * SetUp before to run suite of test.
+     *
      * @author Arley.Bolivar
      */
     @BeforeMethod(alwaysRun = true)
@@ -43,6 +46,7 @@ public abstract class BaseMobileTest {
 
     /**
      * Close the application after completing the test.
+     *
      * @author Arley.Bolivar
      */
     @AfterMethod(alwaysRun = true)
@@ -52,6 +56,7 @@ public abstract class BaseMobileTest {
 
     /**
      * return the driver.
+     *
      * @return driver
      * @author Arley.Bolivar
      */
@@ -61,6 +66,7 @@ public abstract class BaseMobileTest {
 
     /**
      * return SignUpOrLogInScreen after close the alerts.
+     *
      * @return SignUpOrLogInScreen
      * @author Arley.Bolivar
      */

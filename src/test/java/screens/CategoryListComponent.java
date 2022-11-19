@@ -12,11 +12,13 @@ import java.util.stream.Collectors;
 
 /**
  * Category List Component
+ *
  * @author am.garcia
  */
 public class CategoryListComponent extends BaseScreen {
     /**
      * Constructor method for standard screens object.
+     *
      * @param driver : AndroidDriver
      * @author Arley.Bolivar, Hans.Marquez
      */

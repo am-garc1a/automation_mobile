@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Reporter class for information and errors.
+ *
  * @author am.garcia
  */
 public class Reporter {
@@ -16,6 +17,7 @@ public class Reporter {
 
     /**
      * The log
+     *
      * @return logger.
      * @author am.garcia
      */
@@ -25,6 +27,7 @@ public class Reporter {
 
     /**
      * Log info
+     *
      * @author am.garcia
      */
     public static void info(String text) {
@@ -33,6 +36,7 @@ public class Reporter {
 
     /**
      * Log error
+     *
      * @author am.garcia
      */
     public static void error(String text) {

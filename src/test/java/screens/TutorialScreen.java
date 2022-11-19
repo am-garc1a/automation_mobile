@@ -8,6 +8,7 @@ import util.screens.BaseScreen;
 
 /**
  * Object of the first screen that appears when we open the application.
+ *
  * @author Arley.Bolivar
  */
 
@@ -15,6 +16,7 @@ public class TutorialScreen extends BaseScreen {
 
     /**
      * Constructor method.
+     *
      * @param driver the driver
      * @author Arley.Bolivar
      */
@@ -36,6 +38,7 @@ public class TutorialScreen extends BaseScreen {
 
     /**
      * Start permissions process.
+     *
      * @author Hans.Marquez
      */
     public void startPermissionsProcess() {
@@ -44,6 +47,7 @@ public class TutorialScreen extends BaseScreen {
 
     /**
      * Share Location permissions process.
+     *
      * @author Hans.Marquez
      */
     public DashBoardScreen shareLocationPermissions() {
