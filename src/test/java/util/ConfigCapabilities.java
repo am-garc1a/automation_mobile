@@ -10,7 +10,6 @@ import java.io.FileReader;
 
 /**
  * Class for capabilities configuration from external file.
- *
  * @author Arley.Bolivar
  */
 public class ConfigCapabilities {
@@ -28,7 +27,6 @@ public class ConfigCapabilities {
 
     /**
      * SetUp's application.
-     *
      * @param capabilities : DesiredCapabilities
      * @author Arley.Bolivar
      */
@@ -40,7 +38,6 @@ public class ConfigCapabilities {
 
     /**
      * Device SetUp.
-     *
      * @param capabilities : DesiredCapabilities
      * @author Arley.Bolivar
      */
@@ -54,7 +51,6 @@ public class ConfigCapabilities {
 
     /**
      * Method for get data form JSON file.
-     *
      * @param property : String
      * @return String
      * @author Arley.Bolivar

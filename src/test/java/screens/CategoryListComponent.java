@@ -12,13 +12,11 @@ import java.util.stream.Collectors;
 
 /**
  * Category List Component
- *
  * @author am.garcia
  */
 public class CategoryListComponent extends BaseScreen {
     /**
      * Constructor method for standard screens object.
-     *
      * @param driver : AndroidDriver
      * @author Arley.Bolivar, Hans.Marquez
      */
@@ -33,13 +31,17 @@ public class CategoryListComponent extends BaseScreen {
     private List<AndroidElement> categoriesList;
 
     /**
-     * @return rue if Categories Title is displayed in screen, otherwise false.
+     * @return true if Categories Title is displayed in screen, otherwise false.
      * @author am.garcia
      */
     public boolean selectCategoryTitleIsDisplayed() {
         return isElementAvailable(selectCategoryTitle);
     }
 
+    /**
+     * @return true if Categories are displayed in screen, otherwise false.
+     * @author am.garcia
+     */
     public boolean categoriesAreDisplayed() {
 
         AtomicInteger truthyValue = new AtomicInteger();
@@ -53,6 +55,11 @@ public class CategoryListComponent extends BaseScreen {
         return truthyValue.get() == 11;
     }
 
+    /**
+     * @param categoryToFind : category to find
+     * @return string after evaluate if the input received coincide with any category.
+     * @author am.garcia
+     */
     public String categoryIsPresent(String categoryToFind) {
         List<AndroidElement> categoriesList =
                 this.categoriesList.stream().

@@ -16,7 +16,6 @@ import java.time.Duration;
 
 /**
  * Base class for all screens Objects.
- *
  * @author Arley.Bolivar
  */
 public abstract class BaseScreen {
@@ -28,7 +27,6 @@ public abstract class BaseScreen {
 
     /**
      * Constructor method for standard screens object.
-     *
      * @param driver : AndroidDriver
      * @author Arley.Bolivar, Hans.Marquez
      */
@@ -40,7 +38,6 @@ public abstract class BaseScreen {
 
     /**
      * Swipe vertical.
-     *
      * @param percentage of swipe
      */
     @SuppressWarnings({"rawtypes", "unused"})
@@ -54,7 +51,6 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for click  event specifying custom wait.
-     *
      * @param element : AndroidElement
      * @author Hans.Marquez
      */
@@ -67,7 +63,6 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for click event.
-     *
      * @param element : AndroidElement
      * @author Hans.Marquez
      */
@@ -80,9 +75,8 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for sendKeys event.
-     *
      * @param element   : AndroidElement
-     * @param sequence: String
+     * @param sequence : String
      * @author Hans.Marquez
      */
     public void sendKeys(AndroidElement element, String sequence) {
@@ -93,7 +87,6 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for Visibility event.
-     *
      * @param element : AndroidElement
      * @author Hans.Marquez
      */
@@ -109,7 +102,6 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for Visibility event.
-     *
      * @param element : AndroidElement
      * @param timeout : int
      * @author Hans.Marquez

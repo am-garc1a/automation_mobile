@@ -8,7 +8,6 @@ import util.screens.BaseScreen;
 
 /**
  * Object of the first screen that appears when we open the application.
- *
  * @author Arley.Bolivar
  */
 
@@ -16,7 +15,6 @@ public class TutorialScreen extends BaseScreen {
 
     /**
      * Constructor method.
-     *
      * @param driver the driver
      * @author Arley.Bolivar
      */
@@ -37,16 +35,16 @@ public class TutorialScreen extends BaseScreen {
     private AndroidElement allowButton;
 
     /**
-     * @author Hans.Marquez
      * Start permissions process.
+     * @author Hans.Marquez
      */
     public void startPermissionsProcess() {
         click(getStartedButton);
     }
 
     /**
-     * @author Hans.Marquez
      * Share Location permissions process.
+     * @author Hans.Marquez
      */
     public DashBoardScreen shareLocationPermissions() {
         click(shareLocationButton);

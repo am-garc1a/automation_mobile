@@ -10,14 +10,12 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 
 /**
  * DashBoard screen.
- *
  * @author Hans.Marquez
  */
 public class DashBoardScreen extends BaseScreen {
 
     /**
      * Constructor method.
-     *
      * @param driver : AndroidDriver
      * @author Hans.Marquez
      */
@@ -38,8 +36,8 @@ public class DashBoardScreen extends BaseScreen {
     private AndroidElement mapButton;
 
     /**
+     * Navigate to Log in Screen from DashBoard Screen.
      * @author Hans.Marquez
-     * Navigate to Login Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
         if (this.isElementAvailable(dismissWelcome, 25)) {

@@ -12,7 +12,7 @@ import util.tests.BaseMobileTest;
 public class NavigationTest extends BaseMobileTest {
 
     /**
-     * Validate Map Screen Navigation.
+     * Validate Map Screen Navigation and categories list.
      */
     @Description(value = "Map screen Navigation test")
     @Test(priority = 1)
