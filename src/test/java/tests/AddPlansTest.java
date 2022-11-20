@@ -1,6 +1,7 @@
 package tests;
 
 import org.springframework.context.annotation.Description;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.AddPlansScreen;
 import screens.DashBoardScreen;
@@ -16,6 +17,9 @@ public class AddPlansTest extends BaseMobileTest {
         Reporter.info("Start Navigation to Add Plans Screen");
         DashBoardScreen dashBoard = loadDashBoardScreen();
         AddPlansScreen addPlans = dashBoard.goToAddPlansScreen();
+
+        Reporter.info("Validate Check Dining Availability is displayed");
+        Assert.assertEquals(addPlans.planIsPresent("Check Dining Availability"), "Check Dining Availability");
 
         Reporter.info("TEST FINISH, add plans screen---------------");
     }

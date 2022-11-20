@@ -26,8 +26,9 @@ public class PrivacyAndLegalComponent extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Privacy & Legal\")")
     private AndroidElement privacyLegalTitle;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*privacy_and_legal_elements\").resourceIdMatches(\".*txt_element\")")
-    private List<AndroidElement> privacyLegalElements;
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*privacy_and_legal_elements\").resourceIdMatches(\".*txt_element\")")
+    private List<AndroidElement> privacyLegalList;
 
     /**
      * @return true if Privacy & Legal Title is displayed in screen, otherwise false.
@@ -43,7 +44,7 @@ public class PrivacyAndLegalComponent extends BaseScreen {
      * @author am.garcia
      */
     public boolean privacyLegalElementsAreDisplayed() {
-        return areListElementsDisplayed(privacyLegalElements, 10);
+        return areListElementsDisplayed(privacyLegalList, 10);
     }
 
 }

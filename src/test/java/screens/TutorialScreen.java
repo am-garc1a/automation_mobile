@@ -33,7 +33,8 @@ public class TutorialScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*android:id/button1\")")
     private AndroidElement allowLocationButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*com.android.packageinstaller:id/permission_allow_button\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*com.android.packageinstaller:id/permission_allow_button\")")
     private AndroidElement allowButton;
 
     /**
