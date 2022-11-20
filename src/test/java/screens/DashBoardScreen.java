@@ -25,28 +25,78 @@ public class DashBoardScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*android:id/button2\")")
     private AndroidElement dismissPreferenceUpdateButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*dismiss-icon\")")
     private AndroidElement dismissWelcome;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "//android.widget.ImageView[contains(@content-desc,\"Map\")]")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"Map\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().descriptionContains(\"Map\")")
     private AndroidElement mapButton;
 
+    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"Reserve\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().descriptionContains(\"Reserve\")")
+    private AndroidElement addPlansButton;
+
+    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"More\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().descriptionContains(\"More\")")
+    private AndroidElement moreOptionsButton;
+
     /**
-     * @author Hans.Marquez
-     * Navigate to Login Screen from DashBoard Screen.
+     * Dismiss PopUps to have clean dashboard.
+     *
+     * @author am.garcia
      */
-    public MapScreen goToMapScreen() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+    private void dismissPopUps() {
+        if (isElementAvailable(dismissWelcome, 25)) {
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (isElementAvailable(dismissPreferenceUpdateButton, 25)) {
             click(dismissPreferenceUpdateButton);
         }
+    }
+
+    /**
+     * Navigate to Map Screen from DashBoard Screen.
+     *
+     * @author Hans.Marquez
+     */
+    public MapScreen goToMapScreen() {
+        dismissPopUps();
         click(mapButton);
         return new MapScreen(driver);
     }
+
+    /**
+     * Navigate to Add Plans Screen from DashBoard Screen.
+     *
+     * @author am.garcia
+     */
+    public AddPlansScreen goToAddPlansScreen() {
+        dismissPopUps();
+        click(addPlansButton);
+        return new AddPlansScreen(driver);
+    }
+
+    /**
+     * Navigate to More Options Screen from DashBoard Screen.
+     *
+     * @author am.garcia
+     */
+    public MoreOptionsScreen goToMoreOptionsScreen() {
+        dismissPopUps();
+        click(moreOptionsButton);
+        return new MoreOptionsScreen(driver);
+    }
+
 }

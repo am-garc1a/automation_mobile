@@ -4,8 +4,8 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -14,8 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static java.lang.String.format;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Base class for all screens Objects.
@@ -28,11 +29,6 @@ public abstract class BaseScreen {
      * The driver.
      */
     protected final AndroidDriver<AndroidElement> driver;
-
-    /**
-     * The log.
-     */
-    public Logger log = Logger.getLogger(BaseScreen.class);
 
     /**
      * Constructor method for standard screens object.
@@ -50,15 +46,19 @@ public abstract class BaseScreen {
      * Swipe vertical.
      *
      * @param percentage of swipe
+     * @author am.garcia
      */
     @SuppressWarnings({"rawtypes", "unused"})
     public void swipeVertical(float percentage) {
         Dimension windowSize = driver.manage().window().getSize();
-        TouchAction ta = new TouchAction(driver);
-        ta.press(PointOption.point(207, 582)).moveTo(PointOption.point(
-                8,-360)).release().perform();
-    }
 
+        TouchAction ta = new TouchAction(driver);
+        ta.press(PointOption.point((int) (windowSize.width * 0.5), (int) (windowSize.height * 0.5)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point((int) (windowSize.width * 0.5), (int) (windowSize.height * percentage)))
+                .release()
+                .perform();
+    }
 
     /**
      * Wrapper for click  event specifying custom wait.
@@ -72,7 +72,6 @@ public abstract class BaseScreen {
         element.click();
     }
 
-
     /**
      * Wrapper for click event.
      *
@@ -80,17 +79,16 @@ public abstract class BaseScreen {
      * @author Hans.Marquez
      */
     public void click(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
-
     /**
      * Wrapper for sendKeys event.
      *
-     * @param element   : AndroidElement
-     * @param sequence: String
+     * @param element  : AndroidElement
+     * @param sequence : String
      * @author Hans.Marquez
      */
     public void sendKeys(AndroidElement element, String sequence) {
@@ -129,6 +127,43 @@ public abstract class BaseScreen {
             return true;
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
+        }
+    }
+
+    /**
+     * @param list                   : list to evaluate
+     * @param expectedElementsAmount : expected amount of elements in list
+     * @return true if List elements are displayed in screen, otherwise false.
+     */
+    public boolean areListElementsDisplayed(List<AndroidElement> list, int expectedElementsAmount) {
+
+        AtomicInteger truthyValue = new AtomicInteger();
+
+        list.forEach(element -> {
+            if (!element.getText().equalsIgnoreCase("")) {
+                truthyValue.addAndGet(1);
+            }
+        });
+
+        return truthyValue.get() == expectedElementsAmount;
+    }
+
+    /**
+     * @param list          : list to evaluate
+     * @param elementToFind : element to find
+     * @return string after evaluate if the input received coincide with any element in list.
+     */
+    public String elementIsPresentInList(List<AndroidElement> list, String elementToFind) {
+
+        List<AndroidElement> evaluatedList =
+                list.stream()
+                        .filter(category -> category.getText().equalsIgnoreCase(elementToFind))
+                        .collect(Collectors.toList());
+
+        if (evaluatedList.size() == 0) {
+            return "";
+        } else {
+            return evaluatedList.get(0).getText();
         }
     }
 

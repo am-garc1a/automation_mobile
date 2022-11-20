@@ -8,8 +8,6 @@ import util.screens.BaseScreen;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
 
-// TODO: Auto-generated Javadoc
-
 /**
  * Map screen.
  *
@@ -27,13 +25,13 @@ public class MapScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
-    private AndroidElement categoryList;
-
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filterTitle.*\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Filter\")")
     private AndroidElement filterButton;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
+    private AndroidElement categoriesButton;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*toggleTitle.*\")")
@@ -41,27 +39,40 @@ public class MapScreen extends BaseScreen {
     private AndroidElement showListButton;
 
     /**
-     * @author Hans.Marquez
-     * return true if Category List element is displayed in screen, otherwise false.
-     */
-    public boolean categoryIsDisplayed() {
-        return isElementAvailable(categoryList);
-    }
-
-    /**
-     * @author Hans.Marquez
      * return true if Filter Button element is displayed in screen, otherwise false.
+     *
+     * @author Hans.Marquez
      */
     public boolean filterIsDisplayed() {
         return isElementAvailable(filterButton);
     }
 
     /**
+     * return true if Categories Button element is displayed in screen, otherwise false.
+     *
      * @author Hans.Marquez
+     */
+    public boolean categoriesIsDisplayed() {
+        return isElementAvailable(categoriesButton);
+    }
+
+    /**
      * return true if Show List Button element is displayed in screen, otherwise false.
+     *
+     * @author Hans.Marquez
      */
     public boolean showListIsDisplayed() {
         return isElementAvailable(showListButton);
+    }
+
+    /**
+     * Shows Categories List Component.
+     *
+     * @author am.garcia
+     */
+    public CategoryListComponent clickCategoryListComponent() {
+        click(categoriesButton);
+        return new CategoryListComponent(driver);
     }
 
 }

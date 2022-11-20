@@ -24,29 +24,32 @@ public class TutorialScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
     private AndroidElement getStartedButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
     private AndroidElement shareLocationButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*android:id/button1\")")
     private AndroidElement allowLocationButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*com.android.packageinstaller:id/permission_allow_button\")")
     private AndroidElement allowButton;
 
     /**
-     * @author Hans.Marquez
      * Start permissions process.
+     *
+     * @author Hans.Marquez
      */
     public void startPermissionsProcess() {
         click(getStartedButton);
     }
 
     /**
-     * @author Hans.Marquez
      * Share Location permissions process.
+     *
+     * @author Hans.Marquez
      */
     public DashBoardScreen shareLocationPermissions() {
         click(shareLocationButton);
