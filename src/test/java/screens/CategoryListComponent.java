@@ -29,7 +29,8 @@ public class CategoryListComponent extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categorySelectHeader\")")
     private AndroidElement selectCategoryTitle;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*listSelectorContainer\").resourceIdMatches(\".*facilityTypeTitle\")")
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*listSelectorContainer\").resourceIdMatches(\".*facilityTypeTitle\")")
     private List<AndroidElement> categoriesList;
 
     /**

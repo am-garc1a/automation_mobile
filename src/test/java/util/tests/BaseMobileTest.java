@@ -22,6 +22,16 @@ public abstract class BaseMobileTest {
     protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
 
+    /**
+     * return the driver.
+     *
+     * @return driver
+     * @author Arley.Bolivar
+     */
+    public AndroidDriver<AndroidElement> getDriver() {
+        return driver;
+    }
+
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
     }
@@ -52,16 +62,6 @@ public abstract class BaseMobileTest {
     @AfterMethod(alwaysRun = true)
     public void mobileApplicationEnd() {
         driver.quit();
-    }
-
-    /**
-     * return the driver.
-     *
-     * @return driver
-     * @author Arley.Bolivar
-     */
-    public AndroidDriver<AndroidElement> getDriver() {
-        return driver;
     }
 
     /**
