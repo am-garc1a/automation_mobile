@@ -22,6 +22,9 @@ public class AddPlansScreen extends BaseScreen {
             "new UiSelector().resourceIdMatches(\".*actionSheetListView\").resourceIdMatches(\".*actionSheetItemText\")")
     private List<AndroidElement> plansList;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filter_clear\")")
+    private AndroidElement partySizeLable;
+
     /**
      * @param planToFind : plan to find
      * @return string after evaluate if the input received coincide with any category.
@@ -29,6 +32,24 @@ public class AddPlansScreen extends BaseScreen {
      */
     public String planIsPresent(String planToFind) {
         return elementIsPresentInList(plansList, planToFind);
+    }
+
+    /**
+     * Click the plan by index.
+     *
+     * @param planIndex : index of plan in plans list
+     * @author am.garcia
+     */
+    public void clickPlan(int planIndex) {
+        click(plansList.get(planIndex));
+    }
+
+    /**
+     * @return true if Party Size Lable is displayed in screen, otherwise false.
+     * @author am.garcia
+     */
+    public Boolean diningAvailabilityComponentDisplayed() {
+        return isElementAvailable(partySizeLable, 5);
     }
 
 }

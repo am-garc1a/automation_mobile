@@ -18,8 +18,13 @@ public class AddPlansTest extends BaseMobileTest {
         DashBoardScreen dashBoard = loadDashBoardScreen();
         AddPlansScreen addPlans = dashBoard.goToAddPlansScreen();
 
-        Reporter.info("Validate Check Dining Availability is displayed");
+        Reporter.info("Validate Check Dining Availability Button is displayed");
         Assert.assertEquals(addPlans.planIsPresent("Check Dining Availability"), "Check Dining Availability");
+
+        addPlans.clickPlan(0);
+
+        Reporter.info("Validate Dining Availability Component");
+        Assert.assertTrue(addPlans.diningAvailabilityComponentDisplayed(), "Dining Availability Component is not displayed");
 
         Reporter.info("TEST FINISH, add plans screen---------------");
     }

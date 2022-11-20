@@ -43,7 +43,7 @@ public class CategoryListTest extends BaseMobileTest {
         Reporter.info("Validate Hotels is displayed");
         Assert.assertEquals(categoryList.categoryIsPresent("Hotels"), "Hotels");
 
-        Reporter.info("TEST FINISH, navigation to map and categories list---------------\n");
+        Reporter.info("TEST FINISH, navigation to map and categories list---------------");
     }
 
 }

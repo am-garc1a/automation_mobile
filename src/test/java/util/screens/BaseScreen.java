@@ -72,7 +72,6 @@ public abstract class BaseScreen {
         element.click();
     }
 
-
     /**
      * Wrapper for click event.
      *

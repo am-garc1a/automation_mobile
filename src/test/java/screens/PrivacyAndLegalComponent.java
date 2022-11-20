@@ -35,12 +35,11 @@ public class PrivacyAndLegalComponent extends BaseScreen {
      * @author am.garcia
      */
     public boolean privacyLegalTitleTitleIsDisplayed() {
-        return isElementAvailable(privacyLegalTitle);
+        return isElementAvailable(privacyLegalTitle, 5);
     }
 
     /**
-     * return true if Privacy & Legal Elements are displayed in screen, otherwise false.
-     *
+     * @return true if Privacy & Legal Elements are displayed in screen, otherwise false.
      * @author am.garcia
      */
     public boolean privacyLegalElementsAreDisplayed() {
