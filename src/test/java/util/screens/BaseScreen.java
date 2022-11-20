@@ -14,6 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Base class for all screens Objects.
@@ -125,6 +128,43 @@ public abstract class BaseScreen {
             return true;
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
+        }
+    }
+
+    /**
+     * @param list                   : list to evaluate
+     * @param expectedElementsAmount : expected amount of elements in list
+     * @return true if List elements are displayed in screen, otherwise false.
+     */
+    public boolean areListElementsDisplayed(List<AndroidElement> list, int expectedElementsAmount) {
+
+        AtomicInteger truthyValue = new AtomicInteger();
+
+        list.forEach(element -> {
+            if (!element.getText().equalsIgnoreCase("")) {
+                truthyValue.addAndGet(1);
+            }
+        });
+
+        return truthyValue.get() == expectedElementsAmount;
+    }
+
+    /**
+     * @param list          : list to evaluate
+     * @param elementToFind : element to find
+     * @return string after evaluate if the input received coincide with any element in list.
+     */
+    public String elementIsPresentInList(List<AndroidElement> list, String elementToFind) {
+
+        List<AndroidElement> evaluatedList =
+                list.stream()
+                        .filter(category -> category.getText().equalsIgnoreCase(elementToFind))
+                        .collect(Collectors.toList());
+
+        if (evaluatedList.size() == 0) {
+            return "";
+        } else {
+            return evaluatedList.get(0).getText();
         }
     }
 

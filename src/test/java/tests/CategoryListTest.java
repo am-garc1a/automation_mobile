@@ -9,7 +9,7 @@ import screens.MapScreen;
 import util.reporter.Reporter;
 import util.tests.BaseMobileTest;
 
-public class NavigationTest extends BaseMobileTest {
+public class CategoryListTest extends BaseMobileTest {
 
     /**
      * Validate Map Screen Navigation and categories list.

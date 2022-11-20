@@ -7,8 +7,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import util.screens.BaseScreen;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 /**
  * Category List Component
@@ -46,16 +44,7 @@ public class CategoryListComponent extends BaseScreen {
      * @author am.garcia
      */
     public boolean categoriesAreDisplayed() {
-
-        AtomicInteger truthyValue = new AtomicInteger();
-
-        categoriesList.forEach(element -> {
-            if (!element.getText().equalsIgnoreCase("")) {
-                truthyValue.addAndGet(1);
-            }
-        });
-
-        return truthyValue.get() == 11;
+        return areListElementsDisplayed(categoriesList, 11);
     }
 
     /**
@@ -64,14 +53,6 @@ public class CategoryListComponent extends BaseScreen {
      * @author am.garcia
      */
     public String categoryIsPresent(String categoryToFind) {
-        List<AndroidElement> categoriesList =
-                this.categoriesList.stream().
-                        filter(category -> category.getText().equalsIgnoreCase(categoryToFind)).collect(Collectors.toList());
-
-        if (categoriesList.size() == 0) {
-            return "";
-        } else {
-            return categoriesList.get(0).getText();
-        }
+        return elementIsPresentInList(categoriesList, categoryToFind);
     }
 }

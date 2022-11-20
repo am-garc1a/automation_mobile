@@ -7,8 +7,9 @@
 
     <test thread-count="1" name="disney basic information">
         <classes>
-            <class name="tests.NavigationTest"/>
+            <class name="tests.CategoryListTest"/>
             <class name="tests.PrivacyLegalTest"/>
+            <class name="tests.AddPlansTest"/>
         </classes>
     </test>
 </suite>

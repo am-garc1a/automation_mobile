@@ -31,6 +31,9 @@ public class PrivacyLegalTest extends BaseMobileTest {
 
         PrivacyAndLegalComponent privacy = more.clickPrivacyLegalButton();
 
+        Reporter.info("Validate Privacy & Legal Title");
+        Assert.assertTrue(privacy.privacyLegalTitleTitleIsDisplayed(), "Privacy & Legal List is not displayed");
+
         Reporter.info("Validate privacy and legal elements");
         Assert.assertTrue(privacy.privacyLegalElementsAreDisplayed(), "Privacy elements are not displayed");
 

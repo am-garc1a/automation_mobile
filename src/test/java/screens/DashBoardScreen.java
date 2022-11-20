@@ -39,6 +39,12 @@ public class DashBoardScreen extends BaseScreen {
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"Reserve\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Reserve\")")
+    private AndroidElement addPlansButton;
+
+    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
+    @AndroidFindBy(uiAutomator =
             "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"More\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"More\")")
     private AndroidElement moreOptionsButton;
@@ -57,6 +63,22 @@ public class DashBoardScreen extends BaseScreen {
         }
         click(mapButton);
         return new MapScreen(driver);
+    }
+
+    /**
+     * Navigate to Add Plans Screen from DashBoard Screen.
+     *
+     * @author am.garcia
+     */
+    public AddPlansScreen goToAddPlansScreen() {
+        if (this.isElementAvailable(dismissWelcome, 25)) {
+            click(dismissWelcome);
+        }
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)) {
+            click(dismissPreferenceUpdateButton);
+        }
+        click(addPlansButton);
+        return new AddPlansScreen(driver);
     }
 
     /**
