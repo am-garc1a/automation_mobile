@@ -4,6 +4,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -42,15 +43,19 @@ public abstract class BaseScreen {
      * Swipe vertical.
      *
      * @param percentage of swipe
+     * @author am.garcia
      */
     @SuppressWarnings({"rawtypes", "unused"})
     public void swipeVertical(float percentage) {
         Dimension windowSize = driver.manage().window().getSize();
-        TouchAction ta = new TouchAction(driver);
-        ta.press(PointOption.point(207, 582)).moveTo(PointOption.point(
-                8, -360)).release().perform();
-    }
 
+        TouchAction ta = new TouchAction(driver);
+        ta.press(PointOption.point((int) (windowSize.width * 0.5), (int) (windowSize.height * 0.5)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point((int) (windowSize.width * 0.5), (int) (windowSize.height * percentage)))
+                .release()
+                .perform();
+    }
 
     /**
      * Wrapper for click  event specifying custom wait.

@@ -63,7 +63,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/SuiteTest.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/DisneyServicesSuiteTest.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

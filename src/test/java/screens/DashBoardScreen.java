@@ -37,6 +37,9 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Map\")")
     private AndroidElement mapButton;
 
+    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().className(\"android.widget.ImageView\").descriptionContains(\"More\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"More\")")
     private AndroidElement moreOptionsButton;
 
