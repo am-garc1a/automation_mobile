@@ -27,3 +27,9 @@ This set of tests are oriented into a small part navigation of the Disneyland ap
 | Check if the Reserve Dining Option is in the list  | Reserve Dining Option should be enabled    | -                                                                                         |
 
 Test evidence
+
+![test_1](https://raw.githubusercontent.com/am-garc1a/automation_mobile/dev/src/assets/images/1.PNG)
+
+![test_2](https://raw.githubusercontent.com/am-garc1a/automation_mobile/dev/src/assets/images/2.PNG)
+
+![test_3](https://raw.githubusercontent.com/am-garc1a/automation_mobile/dev/src/assets/images/3.PNG)
