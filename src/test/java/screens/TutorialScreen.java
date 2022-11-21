@@ -38,6 +38,15 @@ public class TutorialScreen extends BaseScreen {
     private AndroidElement allowButton;
 
     /**
+     * return true if Get Started Button element is displayed in screen, otherwise false.
+     *
+     * @author am.garcia
+     */
+    public boolean getStartedButtonIsDisplayed() {
+        return isElementAvailable(getStartedButton, 10);
+    }
+
+    /**
      * Start permissions process.
      *
      * @author Hans.Marquez
@@ -55,6 +64,15 @@ public class TutorialScreen extends BaseScreen {
         click(shareLocationButton);
         click(allowLocationButton);
         click(allowButton);
+        return new DashBoardScreen(driver);
+    }
+
+    /**
+     * Navigate to Dashboard Screen from Tutorial Screen.
+     *
+     * @author am.garcia
+     */
+    public DashBoardScreen skipPermissions() {
         return new DashBoardScreen(driver);
     }
 }

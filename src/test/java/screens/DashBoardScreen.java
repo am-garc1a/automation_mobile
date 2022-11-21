@@ -58,10 +58,10 @@ public class DashBoardScreen extends BaseScreen {
      * @author am.garcia
      */
     private void dismissPopUps() {
-        if (isElementAvailable(dismissWelcome, 25)) {
+        if (isElementAvailable(dismissWelcome, 12)) {
             click(dismissWelcome);
         }
-        if (isElementAvailable(dismissPreferenceUpdateButton, 25)) {
+        if (isElementAvailable(dismissPreferenceUpdateButton, 12)) {
             click(dismissPreferenceUpdateButton);
         }
     }

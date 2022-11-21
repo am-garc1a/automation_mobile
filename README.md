@@ -25,3 +25,5 @@ This set of tests are oriented into a small part navigation of the Disneyland ap
 |:---------------------------------------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------|
 | Tap Add Plans Button available in Dashboard Page   | Add Plans Option List is shown to the user | Add Plans Button Option is available in the bottom bar, the third item from left to right |
 | Check if the Reserve Dining Option is in the list  | Reserve Dining Option should be enabled    | -                                                                                         |
+
+Test evidence

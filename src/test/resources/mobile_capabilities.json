@@ -8,5 +8,6 @@
 	"automationName": "UiAutomator2",
 	"autoGrantPermissions": "true",
     "skipServerInstallation": "true",
+	"noReset": "true",
 	"newCommandTimeout": 120
 }

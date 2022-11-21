@@ -71,8 +71,12 @@ public abstract class BaseMobileTest {
      * @author Arley.Bolivar
      */
     protected DashBoardScreen loadDashBoardScreen() {
-        tutorialScreen.startPermissionsProcess();
-        return tutorialScreen.shareLocationPermissions();
+        if (tutorialScreen.getStartedButtonIsDisplayed()) {
+            tutorialScreen.startPermissionsProcess();
+            return tutorialScreen.shareLocationPermissions();
+        } else {
+            return tutorialScreen.skipPermissions();
+        }
     }
 
 }
