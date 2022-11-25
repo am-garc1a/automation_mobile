@@ -13,17 +13,6 @@ import util.screens.BaseScreen;
  */
 
 public class TutorialScreen extends BaseScreen {
-
-    /**
-     * Constructor method.
-     *
-     * @param driver the driver
-     * @author Arley.Bolivar
-     */
-    public TutorialScreen(AndroidDriver<AndroidElement> driver) {
-        super(driver);
-    }
-
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
     private AndroidElement getStartedButton;
 
@@ -36,6 +25,16 @@ public class TutorialScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator =
             "new UiSelector().resourceIdMatches(\".*com.android.packageinstaller:id/permission_allow_button\")")
     private AndroidElement allowButton;
+
+    /**
+     * Constructor method.
+     *
+     * @param driver the driver
+     * @author Arley.Bolivar
+     */
+    public TutorialScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
+    }
 
     /**
      * return true if Get Started Button element is displayed in screen, otherwise false.

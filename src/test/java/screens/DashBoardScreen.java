@@ -15,16 +15,6 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
  */
 public class DashBoardScreen extends BaseScreen {
 
-    /**
-     * Constructor method.
-     *
-     * @param driver : AndroidDriver
-     * @author Hans.Marquez
-     */
-    public DashBoardScreen(AndroidDriver<AndroidElement> driver) {
-        super(driver);
-    }
-
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*android:id/button2\")")
     private AndroidElement dismissPreferenceUpdateButton;
 
@@ -51,6 +41,16 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator =
             "new UiSelector().descriptionContains(\"More\")")
     private AndroidElement moreOptionsButton;
+
+    /**
+     * Constructor method.
+     *
+     * @param driver : AndroidDriver
+     * @author Hans.Marquez
+     */
+    public DashBoardScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
+    }
 
     /**
      * Dismiss PopUps to have clean dashboard.

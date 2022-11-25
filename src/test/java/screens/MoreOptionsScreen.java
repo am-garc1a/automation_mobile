@@ -11,6 +11,10 @@ import util.screens.BaseScreen;
  * @author am.garcia
  */
 public class MoreOptionsScreen extends BaseScreen {
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Privacy\")")
+    private AndroidElement privacyLegalButton;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -20,9 +24,6 @@ public class MoreOptionsScreen extends BaseScreen {
     public MoreOptionsScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Privacy\")")
-    private AndroidElement privacyLegalButton;
 
     /**
      * return true if Privacy Legal Button is displayed in screen, otherwise false.
