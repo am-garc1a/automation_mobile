@@ -13,6 +13,13 @@ import java.util.List;
  * @author am.garcia
  */
 public class PrivacyAndLegalComponent extends BaseScreen {
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Privacy & Legal\")")
+    private AndroidElement privacyLegalTitle;
+
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*privacy_and_legal_elements\").resourceIdMatches(\".*txt_element\")")
+    private List<AndroidElement> privacyLegalList;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -22,13 +29,6 @@ public class PrivacyAndLegalComponent extends BaseScreen {
     public PrivacyAndLegalComponent(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Privacy & Legal\")")
-    private AndroidElement privacyLegalTitle;
-
-    @AndroidFindBy(uiAutomator =
-            "new UiSelector().resourceIdMatches(\".*privacy_and_legal_elements\").resourceIdMatches(\".*txt_element\")")
-    private List<AndroidElement> privacyLegalList;
 
     /**
      * @return true if Privacy & Legal Title is displayed in screen, otherwise false.

@@ -14,6 +14,13 @@ import java.util.List;
  * @author am.garcia
  */
 public class CategoryListComponent extends BaseScreen {
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categorySelectHeader\")")
+    private AndroidElement selectCategoryTitle;
+
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*listSelectorContainer\").resourceIdMatches(\".*facilityTypeTitle\")")
+    private List<AndroidElement> categoriesList;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -23,13 +30,6 @@ public class CategoryListComponent extends BaseScreen {
     public CategoryListComponent(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categorySelectHeader\")")
-    private AndroidElement selectCategoryTitle;
-
-    @AndroidFindBy(uiAutomator =
-            "new UiSelector().resourceIdMatches(\".*listSelectorContainer\").resourceIdMatches(\".*facilityTypeTitle\")")
-    private List<AndroidElement> categoriesList;
 
     /**
      * @return true if Categories Title is displayed in screen, otherwise false.

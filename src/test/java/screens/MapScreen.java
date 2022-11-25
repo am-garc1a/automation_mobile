@@ -15,16 +15,6 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
  */
 public class MapScreen extends BaseScreen {
 
-    /**
-     * Constructor method.
-     *
-     * @param driver the driver
-     * @author Hans.Marquez
-     */
-    public MapScreen(AndroidDriver<AndroidElement> driver) {
-        super(driver);
-    }
-
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filterTitle.*\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Filter\")")
@@ -37,6 +27,16 @@ public class MapScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*toggleTitle.*\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Show List\")")
     private AndroidElement showListButton;
+
+    /**
+     * Constructor method.
+     *
+     * @param driver the driver
+     * @author Hans.Marquez
+     */
+    public MapScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
+    }
 
     /**
      * return true if Filter Button element is displayed in screen, otherwise false.

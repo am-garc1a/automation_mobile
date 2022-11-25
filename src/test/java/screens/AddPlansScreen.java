@@ -8,6 +8,13 @@ import util.screens.BaseScreen;
 import java.util.List;
 
 public class AddPlansScreen extends BaseScreen {
+    @AndroidFindBy(uiAutomator =
+            "new UiSelector().resourceIdMatches(\".*actionSheetListView\").resourceIdMatches(\".*actionSheetItemText\")")
+    private List<AndroidElement> plansList;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filter_clear\")")
+    private AndroidElement partySizeLable;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -17,13 +24,6 @@ public class AddPlansScreen extends BaseScreen {
     public AddPlansScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
-
-    @AndroidFindBy(uiAutomator =
-            "new UiSelector().resourceIdMatches(\".*actionSheetListView\").resourceIdMatches(\".*actionSheetItemText\")")
-    private List<AndroidElement> plansList;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filter_clear\")")
-    private AndroidElement partySizeLable;
 
     /**
      * @param planToFind : plan to find
